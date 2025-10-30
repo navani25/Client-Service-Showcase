@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Demo - Portfolio Animations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .animation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .animation-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .animation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .demo-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            margin: 1rem auto;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .demo-box:hover {
+            transform: scale(1.1);
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Import animations from the main CSS */
+        @import url('style.css');
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Portfolio Animation Demo</h1>
+        
+        <div class="instructions">
+            <h2>✨ Animation Showcase</h2>
+            <p>Click on any animation box below to see the effect in action. These animations are now available in your portfolio website!</p>
+            <a href="index.html" class="back-btn">← Back to Portfolio</a>
+        </div>
+
+        <div class="animation-grid">
+            <!-- Fade Animations -->
+            <div class="animation-card">
+                <h3>🎭 Fade Animations</h3>
+                <div class="demo-box fade-in" onclick="triggerAnimation(this, 'fade-in')">Fade In</div>
+                <div class="demo-box fade-in-up" onclick="triggerAnimation(this, 'fade-in-up')">Fade Up</div>
+                <div class="demo-box fade-in-down" onclick="triggerAnimation(this, 'fade-in-down')">Fade Down</div>
+                <div class="demo-box fade-in-left" onclick="triggerAnimation(this, 'fade-in-left')">Fade Left</div>
+                <div class="demo-box fade-in-right" onclick="triggerAnimation(this, 'fade-in-right')">Fade Right</div>
+            </div>
+
+            <!-- Slide Animations -->
+            <div class="animation-card">
+                <h3>🏃 Slide Animations</h3>
+                <div class="demo-box slide-in-up" onclick="triggerAnimation(this, 'slide-in-up')">Slide Up</div>
+                <div class="demo-box slide-in-down" onclick="triggerAnimation(this, 'slide-in-down')">Slide Down</div>
+                <div class="demo-box slide-in-left" onclick="triggerAnimation(this, 'slide-in-left')">Slide Left</div>
+                <div class="demo-box slide-in-right" onclick="triggerAnimation(this, 'slide-in-right')">Slide Right</div>
+            </div>
+
+            <!-- Move Animations -->
+            <div class="animation-card">
+                <h3>🎯 Move Animations</h3>
+                <div class="demo-box move-in" onclick="triggerAnimation(this, 'move-in')">Move In</div>
+                <div class="demo-box move-up" onclick="triggerAnimation(this, 'move-up')">Move Up</div>
+                <div class="demo-box move-down" onclick="triggerAnimation(this, 'move-down')">Move Down</div>
+                <div class="demo-box move-left" onclick="triggerAnimation(this, 'move-left')">Move Left</div>
+                <div class="demo-box move-right" onclick="triggerAnimation(this, 'move-right')">Move Right</div>
+            </div>
+
+            <!-- Special Effects -->
+            <div class="animation-card">
+                <h3>🌟 Special Effects</h3>
+                <div class="demo-box zoom-in" onclick="triggerAnimation(this, 'zoom-in')">Zoom In</div>
+                <div class="demo-box rotate-in" onclick="triggerAnimation(this, 'rotate-in')">Rotate In</div>
+                <div class="demo-box bounce-in" onclick="triggerAnimation(this, 'bounce-in')">Bounce In</div>
+                <div class="demo-box pulse" onclick="triggerAnimation(this, 'pulse')">Pulse</div>
+                <div class="demo-box float" onclick="triggerAnimation(this, 'float')">Float</div>
+            </div>
+
+            <!-- Hover Effects -->
+            <div class="animation-card">
+                <h3>🖱️ Hover Effects</h3>
+                <div class="demo-box hover-lift" onclick="toggleHover(this)">Hover Lift</div>
+                <div class="demo-box hover-scale" onclick="toggleHover(this)">Hover Scale</div>
+                <div class="demo-box hover-rotate" onclick="toggleHover(this)">Hover Rotate</div>
+            </div>
+
+            <!-- Scroll Animations -->
+            <div class="animation-card">
+                <h3>📜 Scroll Animations</h3>
+                <p>These animations trigger when elements come into view while scrolling:</p>
+                <div class="demo-box animate-on-scroll" data-animation="fade-in-up">Scroll to Animate</div>
+                <div class="demo-box animate-on-scroll" data-animation="zoom-in" style="animation-delay: 0.2s;">Stagger 1</div>
+                <div class="demo-box animate-on-scroll" data-animation="bounce-in" style="animation-delay: 0.4s;">Stagger 2</div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>🚀 Implementation Features</h2>
+            <ul>
+                <li><strong>Intersection Observer:</strong> Animations trigger automatically when elements come into view</li>
+                <li><strong>Staggered Animations:</strong> Multiple elements animate with delays for smooth sequences</li>
+                <li><strong>Responsive Design:</strong> Animations adapt for mobile devices</li>
+                <li><strong>Performance Optimized:</strong> Uses CSS transforms for smooth 60fps animations</li>
+                <li><strong>Accessibility:</strong> Respects user's reduced motion preferences</li>
+                <li><strong>Hover Effects:</strong> Interactive elements respond to mouse movements</li>
+                <li><strong>Parallax Scrolling:</strong> Background elements move at different speeds</li>
+                <li><strong>Loading Animations:</strong> Smooth page load transitions</li>
+            </ul>
+        </div>
+
+        <div class="instructions">
+            <h2>📋 How to Use in Your Portfolio</h2>
+            <p>All animations are now automatically applied to your portfolio sections:</p>
+            <ul>
+                <li><strong>Hero Section:</strong> Image fades in from left, text from right, buttons from bottom</li>
+                <li><strong>Section Titles:</strong> Slide up with staggered delays</li>
+                <li><strong>Project Cards:</strong> Zoom in with hover effects</li>
+                <li><strong>Skills:</strong> Fade in with pulse hover effects</li>
+                <li><strong>Navigation:</strong> Smooth hover transitions</li>
+                <li><strong>Buttons:</strong> Magnetic hover effects and smooth transformations</li>
+            </ul>
+            <p>Simply scroll through your portfolio to see all the animations in action!</p>
+        </div>
+    </div>
+
+    <script>
+        function triggerAnimation(element, animationClass) {
+            element.style.animation = 'none';
+            element.offsetHeight; // Trigger reflow
+            element.style.animation = null;
+            element.classList.add(animationClass);
+            
+            setTimeout(() => {
+                element.classList.remove(animationClass);
+            }, 1000);
+        }
+
+        function toggleHover(element) {
+            if (element.classList.contains('hover-lift')) {
+                element.style.transform = 'translateY(-5px)';
+            } else if (element.classList.contains('hover-scale')) {
+                element.style.transform = 'scale(1.05)';
+            } else if (element.classList.contains('hover-rotate')) {
+                element.style.transform = 'rotate(5deg)';
+            }
+            
+            setTimeout(() => {
+                element.style.transform = '';
+            }, 500);
+        }
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const animationType = entry.target.getAttribute('data-animation');
+                    if (animationType) {
+                        entry.target.classList.add(animationType);
+                        entry.target.classList.add('animate');
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
