@@ -715,27 +715,44 @@ footer a span {
     color: #FFFFFF;
 }
 
+/* === NEW / FIXED SCROLL TOP BUTTON STYLES START HERE === */
 #scrollTopBtn {
-    display: none;
+    display: none; /* Hidden by default, shown with JavaScript */
     position: fixed;
     bottom: 30px;
     right: 30px;
     z-index: 99;
-    background: var(--accent-red);
-    color: #FFFFFF;
+    border: none;
+    background-color: #d90429; /* A solid red color like the image */
     cursor: pointer;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     transition: all 0.3s ease;
+    
+    /* Use Flexbox to position the icon inside */
+    display: flex;
+    align-items: flex-start; /* Vertically align to the top */
+    justify-content: flex-start; /* Horizontally align to the left */
+    padding: 12px; /* Padding to push the icon from the edges */
 }
 
 #scrollTopBtn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px var(--accent-red);
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 20px rgba(217, 4, 41, 0.4);
 }
 
+#scrollTopBtn svg {
+    width: 100%;
+    height: 100%;
+    fill: #000000; /* Set icon color to black as in the image */
+    transition: transform 0.3s ease;
+}
 
+#scrollTopBtn:hover svg {
+    transform: scale(1.1);
+}
+/* === SCROLL TOP BUTTON STYLES END HERE === */
 /*=============================================
   11. PROJECT DETAIL PAGE
 =============================================*/
